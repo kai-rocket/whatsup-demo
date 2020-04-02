@@ -1,4 +1,4 @@
-package com.example.whatsup
+package com.rocketacademy.whatsup_demo
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "897302425763",
+    "firebase_url": "https://whatsup-demo-df079.firebaseio.com",
+    "project_id": "whatsup-demo-df079",
+    "storage_bucket": "whatsup-demo-df079.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897302425763:android:93fa267ff2348db0498f16",
+        "android_client_info": {
+          "package_name": "com.rocketacademy.whatsup_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897302425763-n9km6iv25v6dlm6po0h7eakgaajstfp6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlti2G1YGD_wkbKQ2m5GGOoWBhFhOn61M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897302425763-n9km6iv25v6dlm6po0h7eakgaajstfp6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
