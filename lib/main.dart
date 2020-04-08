@@ -1,5 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsup_demo/chat_screen.dart';
+import 'package:whatsup_demo/nav_bar_item_data.dart';
 
 void main() => runApp(WhatsUp());
 
@@ -26,6 +27,11 @@ class WhatsUpRoot extends StatefulWidget {
 class _WhatsUpRootState extends State<WhatsUpRoot> {
   int _selectedNavBarItemIndex = 0;
 
+  final List<NavBarItemData> bottomNavBarItemData = [
+    NavBarItemData('Chats', Icons.chat, ChatScreen()),
+    NavBarItemData('Settings', Icons.settings, ChatScreen()),
+  ];
+
   void _onNavBarItemTapped(int index) {
     setState(() {
       _selectedNavBarItemIndex = index;
@@ -38,40 +44,16 @@ class _WhatsUpRootState extends State<WhatsUpRoot> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      // TODO(kai): Set body to the Widget that corresponds to the current nav bar index
-      body: StreamBuilder<QuerySnapshot>(
-          stream: Firestore.instance
-              .collection('chats')
-              .document('main')
-              .collection('messages')
-              .snapshots(),
-          builder:
-              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            // Error checking
-            if (snapshot.hasError) {
-              return new Text('Error: ${snapshot.error}');
-            }
-            switch (snapshot.connectionState) {
-              case ConnectionState.waiting:
-                return new Text('Loading...');
-              default:
-                return new ListView(
-                  children:
-                      snapshot.data.documents.map((DocumentSnapshot document) {
-                    return new ListTile(
-                      title: new Text(document['content']),
-                      subtitle: new Text(document['authorId']),
-                    );
-                  }).toList(),
-                );
-            }
-          }),
-      bottomNavigationBar:
-          BottomNavigationBar(items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(Icons.chat), title: Text('Chats')),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.settings), title: Text('Settings'))
-      ], currentIndex: _selectedNavBarItemIndex, onTap: _onNavBarItemTapped),
+      body: bottomNavBarItemData[_selectedNavBarItemIndex].screen,
+      bottomNavigationBar: BottomNavigationBar(
+          items: bottomNavBarItemData
+              .map(
+                (NavBarItemData itemData) => BottomNavigationBarItem(
+                    icon: Icon(itemData.icon), title: Text(itemData.text)),
+              )
+              .toList(),
+          currentIndex: _selectedNavBarItemIndex,
+          onTap: _onNavBarItemTapped),
     );
   }
 }
