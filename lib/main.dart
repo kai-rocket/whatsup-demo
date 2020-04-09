@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsup_demo/chat_screen.dart';
 import 'package:whatsup_demo/nav_bar_item_data.dart';
+import 'package:whatsup_demo/settings_screen.dart';
 
 void main() => runApp(WhatsUp());
 
@@ -25,11 +26,11 @@ class WhatsUpRoot extends StatefulWidget {
 }
 
 class _WhatsUpRootState extends State<WhatsUpRoot> {
-  int _selectedNavBarItemIndex = 0;
+  int _selectedNavBarItemIndex = 1;
 
   final List<NavBarItemData> bottomNavBarItemData = [
     NavBarItemData('Chats', Icons.chat, ChatScreen()),
-    NavBarItemData('Settings', Icons.settings, ChatScreen()),
+    NavBarItemData('Settings', Icons.settings, SettingsScreen()),
   ];
 
   void _onNavBarItemTapped(int index) {
