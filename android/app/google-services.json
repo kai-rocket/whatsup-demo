@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "897302425763-mt0fkk44lbp1f9bg2ac5macpj96sut2u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rocketacademy.whatsup_demo",
+            "certificate_hash": "fa2e1754b77fbb1e851929dfd802237f41c6ceb4"
+          }
+        },
+        {
           "client_id": "897302425763-n9km6iv25v6dlm6po0h7eakgaajstfp6.apps.googleusercontent.com",
           "client_type": 3
         }
